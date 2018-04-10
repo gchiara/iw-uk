@@ -1080,9 +1080,10 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "defaultContent":"N/A",
               "searchable": false,
               "orderable": true,
-              "type":"date-eu",
+              //"type":"date-eu",
               "targets": 6,
               "data": function(d) {
+				 return d.Year;
                  if (!d) return "";
                  if (!d.date) return d.date1;
                    return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
