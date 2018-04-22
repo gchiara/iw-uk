@@ -8,12 +8,12 @@
 <link href="css/bower.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/dc.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
 
 
 <script type="text/javascript" src="js/bower.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
 <script type="text/javascript">
 var dmy = d3.time.format("%d/%m/%Y");
@@ -810,7 +810,8 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 	function drawHostType () {
 
 		var dim = ndx.dimension (function(d) {
-				return d.policy_level;   
+				//return d.policy_level; 
+				return d.ministerialLevel;				
 		});
 
 		var group   = dim.group().reduceSum(function(d) {   return 1; });
@@ -834,6 +835,33 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 			//});
 		chart.ordinalColors(['#9ecae1', '#fdae6b', '#6baed6','#fd8d3c', '#0f4c79', '#e6550d', '#3182bd']);	
 		chart.legend(dc.legend().x(0).y(220).itemHeight(13).gap(5).horizontal(false).autoItemWidth(true))
+		
+		function rangeorder(d){
+			switch(d.key) {
+				case 'Prime Minister':
+					return 0;
+					break;
+				case 'Chancellor of the Exchequer':
+					return 1;
+					break;
+				case 'Secretary of State':
+					return 2;
+					break;
+				case 'Minister of State':
+					return 3;
+					break;
+				case 'Parliamentary Under-Secretary':
+					return 4;
+					break;
+				case 'Others':
+					return 5;
+					break;
+				default:
+					return 6;
+			}
+		}
+		
+		chart.ordering(function(d) { return rangeorder(d); });
 	
 	}
 
@@ -1475,7 +1503,7 @@ function eventpopup (epid) {
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="http://www.transparency.org.uk/who-we-are/contact-us/#.WsyhqC7waUk" target="_blank">Contact</a></li>
 				</ul>
 			</div>
 	 </div><!-- container -->
@@ -1773,6 +1801,27 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 				//d.portfolio = d.portfolio.trim();
 				//d.portfolio = d.policy_level;
 				RecordId ++;
+				d.ministerialLevel = "Others";
+				switch(d.policy_level) {
+					case 'Prime Minister':
+						d.ministerialLevel = 'Prime Minister';
+						break;
+					case 'Chancellor of the Exchequer':
+						d.ministerialLevel = 'Chancellor of the Exchequer';
+						break;
+					case 'Secretary of State':
+						d.ministerialLevel = 'Secretary of State';
+						break;
+					case 'Minister of State':
+						d.ministerialLevel = 'Minister of State';
+						break;
+					case 'Parliamentary Under-Secretary':
+						d.ministerialLevel = 'Parliamentary Under-Secretary';
+						break;
+					default:
+						d.ministerialLevel = "Others";
+				};
+
 			});
 			grid ("#ec",events);
 		});
