@@ -1108,10 +1108,10 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
               "defaultContent":"N/A",
               "searchable": false,
               "orderable": true,
-              //"type":"date-eu",
+              "type":"date-eu",
               "targets": 6,
               "data": function(d) {
-				 return d.Year;
+				 //return d.Year;
                  if (!d) return "";
                  if (!d.date) return d.date1;
                    return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
@@ -1780,7 +1780,8 @@ var newSubcat = {"Law firms":"Law firms","Professional consultancies":"Professio
 	$(function() {
 		var renderLoaded  = _.after(2,  function () { 
 			//var dateFormat = d3.time.format("%d/%m/%Y");
-			var dateFormat = d3.time.format("%Y-%m-%dT00:00:00Z");
+			//var dateFormat = d3.time.format("%Y-%m-%dT00:00:00Z");
+			var dateFormat = d3.time.format("%m/%d/%Y");
 
 			var now = Date.now();
 			var a;
