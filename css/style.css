@@ -1421,4 +1421,171 @@ td.number{
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
   }
+
+/* IW UK - main page */
+
+td.dc-table-column._4,
+td.dc-table-column._5,
+td.dc-table-column._6
+{text-align:left;}
+
+#mep_number {
+		margin-top: 0.1em;}
+.l_data_container {
+	padding: 10px 15px;
+	margin: -10px;
+	background: #d4eaf6;
+}
+.l_data_container div {
+	border: none;
+	margin-top: 0;
+	padding-bottom: 0;
+	margin: 5px 0 5px 0;
+}
+.l_data_container_main {
+	background: #d4eaf6;
+	margin-bottom: 20 !important;
+	font-size: 18px;
+	text-align: center;
+}
+.l_data_container label {
+	font-weight: 600;
+}
+.l_data_container_main label {
+	color: #333;
+}
+.l_data_container_host {
+	border: 4px solid #0f4c79 !important;
+	border-right: 3px solid #0f4c79 !important;
+	margin-top: 0 !important;
+	//height: 230px;
+	padding: 10px 15px !important;
+	background: #fff;
+}
+.l_data_container_guest {
+	border: 4px solid #8e1556 !important;
+	border-left: 3px solid #8e1556 !important;
+	margin-top: 0 !important;
+	//height: 230px;
+	padding: 10px 15px !important;
+	background: #fff;
+}
+.l_data_container_guest label, .l_data_container_guest .data_container_title {
+	color: #8e1556 !important;
+}
+.l_data_container_host label, .l_data_container_host .data_container_title {
+	color: #0f4c79 !important;
+}
+.data_container_title {
+	font-size: 15px;
+	font-weight: 800;
+	text-transform: uppercase;
+	
+}
+.legend div.individual::before {
+    background: #af0700 none repeat scroll 0 0;
+}
+.legend div.tradeunion::before {
+    background: #f6b862 none repeat scroll 0 0;
+}
+.legend div.companies::before {
+    background: #fcb000 none repeat scroll 0 0;
+}
+#about_wrap{
+	display: none;
+}
+
+#toggle_about_wrap {
+	z-index: 1001;
+}
+.fixedheader {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+}
+.fixedheader #filter_wrap {
+	position: relative;
+	height: 85px;
+}
+#uk {
+	margin-top: 190px;
+}
+#about_wrap {
+	width: 100%;
+	margin: 0;
+}
+#filter_wrap .btn {
+	min-height: 85px;
+}
+#filter_wrap .container {
+	height: 85px;
+}
+#about_social {
+	height: 85px;
+	padding: 33px 10px;
+}
+#hidden_charts_wrap {
+	display: block;
+}
+.downloadcsv {
+	background: #fafafa;
+	font-size: 12px;
+	padding: 3px 8px;
+	position: relative;
+	top: -5px;
+	color: #666;
+	border-radius: 3px;
+	margin-right: 10px;
+	text-decoration: none !important;
+}
+.downloadcsv:hover {
+	background: #fff;
+	color: #000;
+}
+.datefilter-container {
+	padding: 10px 25px 10px 25px;
+	margin-bottom: 30px;
+	//background: #f4f5f7;
+	border: 1px solid #e4e5e8;
+	//text-align: center;
+}
+.datefilter-container button {
+	border: none;
+	background: #3695d8;
+	color: #fff;
+	border-radius: 1px;
+	padding: 3px 20px;
+	position: relative;
+	top: -1px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.datefilter-container button:hover {
+	background: #2685c8;
+}
+.datefilter-container input {
+	padding: 3px 10px;
+}
+.datefilter-container .title {
+	font-weight: 600;
+	font-size: 16px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+div#ti_logo_container a#ti_logo {
+    background-image: url("./img/uklogo.png");
+    height: 60px;
+    width: 56%;
+}
+.hosttype text.pie-slice {
+	display: none;
+}
+.main_category svg g g:nth-child(odd) rect {
+	fill: #65a7cf !important;
+}
+.main_category svg g g:nth-child(odd) rect.deselected {
+	fill: #e8e8e8 !important;
+}
   
