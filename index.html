@@ -14,9 +14,10 @@
 
 	<script type="text/javascript">
 	var dmy = d3.time.format("%d/%m/%Y");
+	//var dmy = d3.time.format("%m/%d/%Y");
 	jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 		"date-eu-pre": function ( date ) {
-					return dmy.parse(date);
+			return dmy.parse(date);
 		},
 	
 		"date-eu-asc": function ( a, b ) {
@@ -26,7 +27,7 @@
 		"date-eu-desc": function ( a, b ) {
 			return ((a < b) ? 1 : ((a > b) ? -1 : 0));
 		}
-	} ì);
+	});
 	</script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the pdate via file:// -->
@@ -618,11 +619,16 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 				"searchable": false,
 				"orderable": true,
 				"type":"date-eu",
+				//"type":"date",
 				"targets": 6,
 				"data": function(d) {
 					//return d.Year;
+					
 					if (!d) return "";
+					//if(!d.date) return "1/1/2001";
+					//console.log('date:'+ d.date + ' parsed:');
 					if (!d.date) return d.date1;
+					//return d.date;
 					return d.date.getDate()+"/"+(1+d.date.getMonth())+"/"+d.date.getFullYear();
 					//return d.date.getFullYear()+"-"+(1+d.date.getMonth())+"-"+d.date.getDate();
 				},
