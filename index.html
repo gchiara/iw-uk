@@ -91,11 +91,23 @@ $( document ).ready(function() {
 		$('p.desc').slideUp('fast');
 	}
 
+  //Get current date for datepicker end date
+  var currentDate = function(sp){
+    today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+
+    if(dd<10) dd='0'+dd;
+    if(mm<10) mm='0'+mm;
+    return (dd+sp+mm+sp+yyyy);
+  };
+
 	//DATEPICKER
 	//$( function() {
     var dateFormat = "dd/mm/yy",
 	from = $( "#from" ).datepicker({
-		defaultDate: "01/01/2014",
+		defaultDate: "01/01/2012",
 		changeMonth: true,
 		dateFormat: "dd/mm/yy"
 	})
@@ -104,7 +116,7 @@ $( document ).ready(function() {
 		inidate = getDate( this );	  
 	}),
 	to = $( "#to" ).datepicker({
-	defaultDate: "01/01/2017",
+	defaultDate: currentDate("/"),
 	changeMonth: true,
 	dateFormat: "dd/mm/yy"
 	})
@@ -120,13 +132,12 @@ $( document ).ready(function() {
 		} catch( error ) {
 		date = null;
 		}
-	
 		return date;
 	}
 	//} );
 	
-	$( "#from" ).val('01/01/2014');
-	$( "#to" ).val('01/01/2017');
+	$( "#from" ).val('01/01/2012');
+	$( "#to" ).val(currentDate("/"));
 	inidate = $( "#from" ).datepicker( "getDate" );
 	enddate = $( "#to" ).datepicker( "getDate" );
 	
@@ -1155,7 +1166,7 @@ $(function() {
 	//Date filter
 	$("#datefilter").click(function () {
 		dateEvent.filter(function (d) { 
-			return (d != "" && (d.getTime() >= inidate.getTime()) && (d.getTime() <= enddate.getTime()));
+			return (d == "" || ((d.getTime() >= inidate.getTime()) && (d.getTime() <= enddate.getTime())));
 		});
 		$(".resetall").attr("disabled",false);
 		throttle();
