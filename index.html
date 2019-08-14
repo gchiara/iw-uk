@@ -251,11 +251,12 @@ var subCategories = {"11":"Professional consultancies","12":"Law firms","13":"Se
 
 	drawTable();
 	drawCloud();
-	drawHost();
+  //Portfolio chart temporarely disabled:
+	//drawHost();
 	drawHostType();
 	drawTopGuest();
 	drawTopHost();
-    drawGuestCounter();
+  drawGuestCounter();
 	drawMainCategory();
 	//drawNbParticipants();
 
@@ -812,7 +813,7 @@ function eventpopup (epid) {
 			
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active" id="cm_tool_btn"><a href="ec.html"><strong>Ministerial</strong> <br />meetings</a></li>
+						<li class="active" id="cm_tool_btn"><a href="index.html"><strong>Ministerial</strong> <br />meetings</a></li>
 						<li class="dropdown">
 							<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#" style="width: 120px;">Other versions<span class="caret"></span></a>
 							<ul class="dropdown-menu" style="z-index:999999;">
@@ -886,7 +887,7 @@ function eventpopup (epid) {
 				<div class="col-md-3 col-lg-3" id="about_content_icon">
 				</div>
 				<div class="col-md-6 col-lg-6" id="about_content">
-					<p>This is a user-friendly interactive database that provides a unique overview of lobby meetings with UK Government Ministers since [date TBC].
+					<p>This is a user-friendly interactive database that provides a unique overview of lobby meetings with UK Government Ministers since 2012.
 					<br /><a href="about.html" class="more">Read more</a></p>
 					<p>By simply clicking on the graphs or the list below users can rank, sort and filter the meetings.</p>
 				</div>
@@ -989,7 +990,8 @@ function eventpopup (epid) {
 	<div class="container_wrap" id="hidden_charts_wrap">
 		<div class="container">	
 			<div class="row">
-				<div class="col-md-4 chart_box">
+        <!-- THIS CHART IS HIDDEN AND NOT RENDERED FROM DC AT THE MOMENT -->
+				<div class="col-md-4 chart_box" style="display:none;">
 					<h3>Portfolio<!--span class="info">info</span--></h3>
 					<div class="info_chart">
 						<span class="info">info</span>
